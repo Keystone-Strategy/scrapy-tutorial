@@ -6,7 +6,7 @@
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 from scrapy import signals
 
-class LpricingSpiderMiddleware(object):
+class MyCustomSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -61,7 +61,7 @@ class LpricingSpiderMiddleware(object):
         pass
 
 
-class LpricingDownloaderMiddleware(object):
+class MyCustomDownloaderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.

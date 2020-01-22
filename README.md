@@ -29,14 +29,14 @@ scrapy.cfg
 
 #### For more reference about this: [Click here](https://docs.scrapy.org/en/latest/topics/commands.html#std:command-startproject)
 
-### In addition to that structure, we are adding one more file `middleware.py` so the structure will look like: 
+### In addition to that structure, we are adding one more file `middlewares.py` so the structure will look like: 
 
 ```
 scrapy.cfg
 <project_name>/
 	__init__.py
 	items.py
-	middleware.py
+	middlewares.py
 	pipelines.py
 	settings.py
 	spiders/
@@ -50,7 +50,7 @@ DOWNLOADER_MIDDLEWARES
 ITEM_PIPELINES
 ```
 
-### This will let you use the middlewares for scrapy, to see it just check the `middleware.py` file in this project.
+### This will let you use the middlewares for scrapy, to see it just check the `middlewares.py` file in this project.
 
 ### Now, to finish the initial setup, we need spiders, which is the real target on creating this. To create a spider is necessary that you are inside the root folder of a scrapy project (root folder is where `scrapy.cfg` file will be) and run the command:
 
@@ -60,14 +60,14 @@ ITEM_PIPELINES
 
 #### For more reference about this: [Click here](https://docs.scrapy.org/en/latest/topics/commands.html#std:command-genspider)
 
-### This way, out project's new structure is: 
+### This way, our project's new structure is: 
 
 ```
 scrapy.cfg
 <project_name>/
 	__init__.py
 	items.py
-	middleware.py
+	middlewares.py
 	pipelines.py
 	settings.py
 	spiders/
@@ -85,9 +85,9 @@ scrapy.cfg
 
 ## Items.py
 
-### Inside this file it is possible to define the items that the spider will have as its output, usually a dict, containing the scraped data, to be processed later
+### Inside this file it is possible to define the fields that the spider will have as its output, this output is usually a dictionary, containing the scraped data, to be processed later.
 
-## Middleware.py
+## middlewares.py
 
 ### Here are contained some standard classes from scrapy, whose code will execute in a determinate moment in the spider's life cicle. There is more information about this in the file itself.
 

@@ -48,12 +48,16 @@ ROBOTSTXT_OBEY = True
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 SPIDER_MIDDLEWARES = {
    'scrapy_tutorial.middlewares.MyCustomSpiderMiddleware': 543,
+   'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
 }
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
    'scrapy_tutorial.middlewares.MyCustomDownloaderMiddleware': 543,
+   'scrapy_splash.SplashCookiesMiddleware': 723,
+   'scrapy_splash.SplashMiddleware': 725,
+   'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
 }
 
 # Enable or disable extensions
@@ -65,8 +69,14 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'scrapy_tutorial.pipelines.SomePipeline': 300,
+   'scrapy_tutorial.pipelines.ScrapyTutorialPipeline': 300,
 }
+
+LOG_FILE = './prev_log.log'
+
+SPLASH_URL = 'https://kslabs-scrapy-splash.herokuapp.com/'
+DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
+HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
